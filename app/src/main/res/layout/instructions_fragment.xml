@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--layout element for data binding-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<!--The main view group for this fragment. vertical,
+because the elements are one above each other-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Destinations.InstructionsFragment"
     android:orientation="vertical"
     android:background="@color/colorBack">
-
+<!--Scrollview, for the landscape mode-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
+<!--Vertical linear layout to group the next two textviews(for the scrollView)-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +55,7 @@
         android:textSize="18sp" />
     </LinearLayout>
     </ScrollView>
+<!--Button to show the list of shoes-->
     <Button
         android:id="@+id/shoe_list"
         android:layout_width="match_parent"

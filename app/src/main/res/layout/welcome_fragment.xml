@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--layout to make the layout usable for the data binding-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-<LinearLayout
 
+<!--Linear layout for the simple vertical view for the texts, and
+for the button-->
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Destinations.Welcome"
     android:orientation="vertical"
     android:background="@color/colorBack">
+<!--ScrollView for the possibility of scrolling especially
+at landscape mode-->
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="2">
+<!--This LinearLayout for the title, and text (for the srollView)-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-    <TextView
+        android:orientation="vertical">
+<!--TextView for simple text-->
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="?attr/dialogPreferredPadding"
@@ -29,8 +35,8 @@
         android:text="@string/Welcome"
         android:textAlignment="center"
         android:textSize="30sp" />
-
-    <TextView
+<!--TextView for simple text-->
+        <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -43,6 +49,7 @@
         android:text="@string/welcome_text" />
     </LinearLayout>
 </ScrollView>
+<!--Button to press - navigate to the next screen-->
     <Button
         android:id="@+id/next"
         android:layout_width="match_parent"

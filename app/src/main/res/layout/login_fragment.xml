@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--layout for the data binding-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+<!--This linear layout containing all the others-->
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -11,15 +12,17 @@
         android:background="@color/colorBack"
         android:baselineAligned="false"
         android:orientation="vertical">
+<!--Scrollview specially for landscape mode-->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
+<!--This layout contains 2 textViews, and 2 editViews on top of each other-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+<!--simple textView for the title-->
         <TextView
             android:id="@+id/login_title"
             android:layout_width="match_parent"
@@ -28,7 +31,7 @@
             android:text="@string/login_text"
             android:textSize="24sp"
             android:textAlignment="center"/>
-
+<!--simple textView-->
         <TextView
             android:id="@+id/email_text"
             android:layout_width="match_parent"
@@ -37,7 +40,7 @@
             android:layout_marginTop="16dp"
             android:freezesText="true"
             android:text="@string/email" />
-
+<!--editText to get the email from the user-->
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -50,7 +53,7 @@
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             android:text="@string/email" />
-
+<!--Simple textView-->
         <TextView
             android:id="@+id/password_text"
             android:layout_width="match_parent"
@@ -58,7 +61,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:text="@string/password_text" />
-
+<!--editView to get the password from the user-->
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
@@ -74,12 +77,13 @@
             android:text="@string/login_text" />
 </LinearLayout>
         </ScrollView>
+<!--Horizontal linearlayout to keep the buttons near each other-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:orientation="horizontal">
-
+<!--Button to press, and register (in this case navigate to the next view)-->
             <Button
                 android:id="@+id/register_button"
                 android:layout_width="@dimen/button_width"
@@ -93,7 +97,7 @@
                 android:backgroundTint="@color/colorAccent"
                 android:text="@string/register_text"
                 android:textColor="@color/colorBack"/>
-
+<!--Button to login (in this case navigate to the next screen)-->
             <Button
                 android:id="@+id/login_button"
                 android:layout_width="@dimen/button_width"
@@ -104,7 +108,5 @@
                 android:text="@string/login_text"
                 android:textColor="@color/colorBack"/>
         </LinearLayout>
-
-
     </LinearLayout>
 </layout>

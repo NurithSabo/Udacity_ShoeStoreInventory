@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This vertical LinearLayout containing the lines(other LinearLayouts)
+ of the shoes details. This layout is replicated as many shoes we have-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
+<!--Horizontal LinearLayout, because it will contain two
+textViews, which are displayint the datas of the shoe-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +34,8 @@
 
     </LinearLayout>
 
+<!--Horizontal LinearLayout, because it will contain two
+textViews, which are displayint the datas of the shoe-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,7 +62,8 @@
             android:layout_weight="1"
             android:text="@string/company" />
     </LinearLayout>
-
+    <!--Horizontal LinearLayout, because it will contain two
+    textViews, which are displayint the datas of the shoe-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,6 +89,8 @@
             android:layout_weight="1"
             android:text="@string/size" />
     </LinearLayout>
+<!--Horizontal LinearLayout, because it will contain two
+textViews, which are displayint the datas of the shoe-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -110,6 +118,7 @@
             android:text="@string/description" />
 
     </LinearLayout>
+<!--This layout is only for decoration-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
