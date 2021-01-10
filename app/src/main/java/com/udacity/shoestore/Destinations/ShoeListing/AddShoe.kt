@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.Destinations.MainActivity
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.AddShoeFragmentBinding
@@ -34,14 +36,24 @@ class AddShoe : Fragment() {
             NavHostFragment.findNavController(this).navigate(action) }
 
         binding.saveButton.setOnClickListener{
-            val newShoe = Shoe(
-                binding.shoeNameEdit.text.toString(),
-                binding.sizeEdit.text.toString().toDouble(),
-                binding.companyNameEdit.text.toString(),
-                binding.descriptionEdit.text.toString()
-            )
-            viewModel.addShoe(newShoe)
-            NavHostFragment.findNavController(this).navigate(action)
+            try {
+                val newShoe = Shoe(
+                        binding.shoeNameEdit?.text.toString(),
+                        binding.sizeEdit.text.toString().toDouble(),
+                        binding.companyNameEdit.text.toString(),
+                        binding.descriptionEdit.text.toString()
+                )
+                viewModel.addShoe(newShoe)
+                NavHostFragment.findNavController(this).navigate(action)
+            } catch (e: Exception) {
+                val snackBar = Snackbar.make(
+                        it, "Fill all blank spaces.",
+                        Snackbar.LENGTH_SHORT
+                )
+                val snackBarView = snackBar.view
+                snackBarView.setBackgroundColor(ContextCompat.getColor(this.requireContext() , R.color.colorPrimary))
+                snackBar.show()
+            }
         }
 
         (activity as MainActivity).supportActionBar?.title = "Add shoe"
