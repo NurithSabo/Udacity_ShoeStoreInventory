@@ -1,19 +1,30 @@
 package com.udacity.shoestore.Destinations.ShoeListing
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel : ViewModel() {
-    private val _shoes = MutableLiveData<MutableList<Shoe>>(mutableListOf())
 
-    val shoes: LiveData<MutableList<Shoe>>
-        get() = _shoes
+    val shoeList = MutableLiveData<MutableList<Shoe>>()
+    private val _shoeList = mutableListOf<Shoe>()
 
-    fun saveCurrentDetail(detail: Shoe?) {
-        detail?.let {
-            _shoes.value?.add(it)
-        }
+/*    init {
+     shoeList.value =ArrayList()
+      addShoe(Shoe ("Sooray", 38.0, "Adidas", "running shoes"))
+    }*/
+
+    fun loadShoes() {
+        shoeList.value =_shoeList
     }
-}
+
+    fun addShoe(addedshoe: Shoe) {
+        _shoeList.add(addedshoe)
+        shoeList.value = shoeList.value
+    }
+
+    fun clearList(){
+        _shoeList.clear()
+    }
+
+ }

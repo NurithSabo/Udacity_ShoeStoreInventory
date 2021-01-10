@@ -4,109 +4,108 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--This linear layout containing all the others-->
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBack"
-        android:baselineAligned="false"
-        android:orientation="vertical">
-<!--Scrollview specially for landscape mode-->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
-<!--This layout contains 2 textViews, and 2 editViews on top of each other-->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:orientation="vertical">
-<!--simple textView for the title-->
-        <TextView
-            android:id="@+id/login_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:text="@string/login_text"
-            android:textSize="24sp"
-            android:textAlignment="center"/>
-<!--simple textView-->
-        <TextView
-            android:id="@+id/email_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:freezesText="true"
-            android:text="@string/email" />
-<!--editText to get the email from the user-->
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:autofillHints=""
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            android:text="@string/email" />
-<!--Simple textView-->
-        <TextView
-            android:id="@+id/password_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/password_text" />
-<!--editView to get the password from the user-->
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:autofillHints=""
-            android:hint="@string/password_text"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            android:text="@string/login_text" />
-</LinearLayout>
-        </ScrollView>
-<!--Horizontal linearlayout to keep the buttons near each other-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-<!--Button to press, and register (in this case navigate to the next view)-->
-            <Button
-                android:id="@+id/register_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="@dimen/gombheight"
-                android:layout_gravity="start"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorAccent"
-                android:text="@string/register_text"
-                android:textColor="@color/colorBack"/>
-<!--Button to login (in this case navigate to the next screen)-->
-            <Button
-                android:id="@+id/login_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="@dimen/gombheight"
-                android:layout_marginEnd="48dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorAccent"
-                android:text="@string/login_text"
-                android:textColor="@color/colorBack"/>
-        </LinearLayout>
-    </LinearLayout>
+
+<!--Constraint Layout for the more flexibility-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBack">
+                <!--simple textView for the title-->
+                <TextView
+                    android:id="@+id/login_title"
+                    style="@style/title_style"
+                    android:text="@string/login_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/pink_shoe"
+                    android:layout_height="30dp"
+                    android:layout_width="30dp"
+                    android:src="@drawable/pink_shoe"
+                    app:layout_constraintTop_toBottomOf="@id/login_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <TextView
+                    android:id="@+id/email_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/email"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pink_shoe"
+                    app:layout_constraintBottom_toTopOf="@id/email"/>
+                <!--editText to get the email from the user-->
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/email"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/email_text" />
+                <!--Simple textView-->
+                <TextView
+                    android:id="@+id/password_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/password_text"
+                    app:layout_constraintTop_toBottomOf="@id/email"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <!--editView to get the password from the user-->
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="@string/password_text"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/login_text"
+                    app:layout_constraintTop_toBottomOf="@id/password_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/register_button"
+                    android:layout_height="0dp"
+                    android:text="@string/register_text"
+                    style="@style/button_style"
+                    android:paddingStart="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/login_button"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/login_button"
+                    android:layout_height="0dp"
+                    android:text="@string/login_text"
+                    style="@style/button_style"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/register_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/register_button" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

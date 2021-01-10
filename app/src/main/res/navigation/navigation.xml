@@ -17,8 +17,7 @@
             app:exitAnim="@anim/fragment_close_exit"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/login_fragment"
-            app:popUpToInclusive="false" />
+            app:popUpTo="@id/login_fragment" />
     </fragment>
     <fragment
         android:id="@+id/welcome"
@@ -44,7 +43,8 @@
             app:enterAnim="@anim/fragment_open_enter"
             app:exitAnim="@anim/fragment_close_exit"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="false"/>
     </fragment>
     <fragment
         android:id="@+id/shoeDetails"
@@ -52,7 +52,7 @@
         android:label="shoedetails_fragment"
         tools:layout="@layout/shoelist_fragment" >
         <action
-            android:id="@+id/action_shoeDetails_to_addShoe2"
+            android:id="@+id/action_shoeDetails_to_addShoe"
             app:destination="@id/addShoe"
             app:enterAnim="@anim/fragment_open_enter"
             app:exitAnim="@anim/fragment_close_exit"

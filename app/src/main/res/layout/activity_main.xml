@@ -9,7 +9,7 @@ It is to wrap other elements-->
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Destinations.MainActivity">
-<!--To here coming the different fragment. One of place of the magic!-->
+<!--To here coming the different fragment.-->
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -17,6 +17,5 @@ It is to wrap other elements-->
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation" />
-
 
 </merge>

@@ -21,9 +21,8 @@ class InstructionsFragment : Fragment() {
         binding.shoeList.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(action) }
 
+        (activity as MainActivity).supportActionBar?.title = "How to use?"
+
         return binding.root
     }
-
-
-
 }

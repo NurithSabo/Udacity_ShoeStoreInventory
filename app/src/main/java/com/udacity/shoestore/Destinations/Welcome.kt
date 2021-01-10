@@ -13,9 +13,14 @@ import com.udacity.shoestore.databinding.WelcomeFragmentBinding
 class Welcome : Fragment() {
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        (activity as MainActivity).supportActionBar?.title = "Welcome"
+
+
         val binding: WelcomeFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.welcome_fragment, container, false)
 
@@ -23,9 +28,8 @@ class Welcome : Fragment() {
         binding.next.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(action) }
 
+
+
         return binding.root
     }
-
-
-
 }

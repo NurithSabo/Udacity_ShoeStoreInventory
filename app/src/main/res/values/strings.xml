@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoeStore</string>
+    <string name="app_name">Bogi`s Udacity Shoe Store App</string>
     <string name="login_text">Login</string>
     <string name="email">email</string>
     <string name="password_text">password</string>
@@ -12,6 +12,7 @@
     <string name="instructions_text1">Follow the next steps to add, and list shoes:</string>
     <string name="shoe_list">Shoe List</string>
     <string name="instructiosn_text2">
+        <li>Follow the next steps to add, and list shoes:</li>
         \n<li>Tap the SHOE LIST button to list shoes</li>
         \n<li>Tap the <b>+</b> button to upload new shoe datas</li>
         \n<li>Fill the form</li>
@@ -32,4 +33,5 @@
     <string name="cancel">cancel</string>
     <string name="logout">Logout</string>
     <string name="_6">6</string>
+    <string name="minta_meret">4.6</string>
 </resources>

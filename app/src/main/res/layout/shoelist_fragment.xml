@@ -2,53 +2,39 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--RelativeLayout, because I can place the floating button to the bottom/left-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
- <!--vertical LinearLayout, because I want to show only 2 view under each other-->
-        <LinearLayout
+
+<!--ConstraintLayout, because I wanted to position the
+    fab button to the bottom right-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@color/colorBack">
-<!--TextView to sho the title-->
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="?attr/dialogPreferredPadding"
-        android:paddingTop="?attr/dialogPreferredPadding"
-        android:paddingEnd="?attr/dialogPreferredPadding"
-        android:paddingRight="?attr/dialogPreferredPadding"
-        android:paddingBottom="?attr/dialogPreferredPadding"
-        android:text="@string/shoe_list"
-        android:textAlignment="center"
-        android:textSize="30sp" />
-<!--ScrollView for showing longer views than the screen-->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-<!--LinearLayout to show the content of my RecyclerView-->
-            <LinearLayout
+        <!--vertical LinearLayout, because I want to show only 2 view under each other-->
+            <!--TextView to sho the title-->
+            <TextView
+                android:id="@+id/shoe_list_title"
+                style="@style/title_style"
+                android:text="@string/shoe_list"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/scroll"/>
+            <!--ScrollView for showing longer views than the screen-->
+            <ScrollView
+                android:id="@+id/scroll"
+                android:paddingBottom="70dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-<!--ReciclerView, because it can "grow"-->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/shoes"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layout_constraintTop_toBottomOf="@id/shoe_list_title">
+            <LinearLayout
+                android:id="@+id/shoeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
-            </LinearLayout>
+            </ScrollView>
 
-
-        </ScrollView>
-
-
-
-    </LinearLayout>
-<!--FloatinActionButton to add more shoes-->
+        <!--FloatinActionButton to add more shoes-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
@@ -59,8 +45,7 @@
             android:src="@drawable/ic_add"
             android:tint="@color/colorBack"
             app:backgroundTint="@color/colorPrimary"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="end|bottom"/>
-    </RelativeLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

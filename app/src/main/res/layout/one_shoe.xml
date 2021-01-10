@@ -1,128 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--This vertical LinearLayout containing the lines(other LinearLayouts)
- of the shoes details. This layout is replicated as many shoes we have-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+<variable
+    name="shoe"
+    type="com.udacity.shoestore.models.Shoe"/>
+    </data>
+
+    <!--Constraint layout for the more flexibility
+    and avoid linearLayout groups-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:paddingTop="30dp"
+    android:layout_margin="10dp"
+    android:id="@+id/shoe_list_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-<!--Horizontal LinearLayout, because it will contain two
-textViews, which are displayint the datas of the shoe-->
+    android:background="@drawable/add_shoe_back">
+
+        <TextView
+        android:id="@+id/textView25"
+        style="@style/half_textview_style"
+        android:text="@string/shoneNametitle"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/shoe_name"
+        app:layout_constraintEnd_toStartOf="@+id/shoe_name"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/shoe_name"
+        style="@style/half_textview_style"
+        android:text="@={shoe.name}"
+        app:layout_constraintBottom_toTopOf="@+id/company"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView28"
+        style="@style/half_textview_style"
+        android:text="@string/company_title"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/company"
+        app:layout_constraintEnd_toStartOf="@+id/company"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/company"
+        style="@style/half_textview_style"
+        android:text="@={shoe.company}"
+        app:layout_constraintBottom_toTopOf="@+id/size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_name" />
+
+    <TextView
+        android:id="@+id/textView30"
+        style="@style/half_textview_style"
+        android:text="@string/shoe_size_title"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/size"
+        app:layout_constraintEnd_toStartOf="@+id/size"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/size"
+        style="@style/half_textview_style"
+        android:text="@={`` +shoe.size}"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/company" />
+
+    <TextView
+        android:id="@+id/textView32"
+        style="@style/half_textview_style"
+        android:text="@string/description_title"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/description"
+        app:layout_constraintEnd_toStartOf="@+id/description"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/half_textview_style"
+        android:text="@={shoe.description}"
+        app:layout_constraintBottom_toTopOf="@+id/add_a_shoe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/size" />
+
+
+    <!--This layout is only for decoration-->
     <LinearLayout
+        android:id="@+id/add_a_shoe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingRight="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView32"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/shoneNametitle"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/shoe_name"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/shoeName" />
-
-    </LinearLayout>
-
-<!--Horizontal LinearLayout, because it will contain two
-textViews, which are displayint the datas of the shoe-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingRight="16dp">
-
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/company_title"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/company"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/company" />
-    </LinearLayout>
-    <!--Horizontal LinearLayout, because it will contain two
-    textViews, which are displayint the datas of the shoe-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingRight="16dp">
-
-        <TextView
-            android:id="@+id/textView30"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/shoe_size_title"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/size"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/size" />
-    </LinearLayout>
-<!--Horizontal LinearLayout, because it will contain two
-textViews, which are displayint the datas of the shoe-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingRight="16dp">
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/description_title"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="@dimen/textview_width"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/description" />
-
-    </LinearLayout>
-<!--This layout is only for decoration-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

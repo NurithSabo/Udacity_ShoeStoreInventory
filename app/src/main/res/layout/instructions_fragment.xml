@@ -2,66 +2,46 @@
 <!--layout element for data binding-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--The main view group for this fragment. vertical,
-because the elements are one above each other-->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Destinations.InstructionsFragment"
-    android:orientation="vertical"
-    android:background="@color/colorBack">
+
 <!--Scrollview, for the landscape mode-->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-<!--Vertical linear layout to group the next two textviews(for the scrollView)-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@color/colorBack"
+        android:fillViewport="true">
+<!--Vertical linear layout for the next two textviews(for the scrollView)-->
+        <LinearLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="?attr/dialogPreferredPadding"
-        android:paddingTop="?attr/dialogPreferredPadding"
-        android:paddingEnd="?attr/dialogPreferredPadding"
-        android:paddingRight="?attr/dialogPreferredPadding"
-        android:paddingBottom="?attr/dialogPreferredPadding"
-        android:text="@string/instructions"
-        android:textAlignment="center"
-        android:textSize="30sp" />
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/title_style"
+                android:text="@string/instructions"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="?attr/dialogPreferredPadding"
-        android:paddingRight="?attr/dialogPreferredPadding"
-        android:text="@string/instructions_text1"
-        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/textView"
+                style="@style/long_text_style"
+                android:text="@string/instructiosn_text2"
+                android:layout_weight="7"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/pink_shoe"
+                android:layout_weight="3"
+                android:layout_marginBottom="30dp"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingLeft="?attr/dialogPreferredPadding"
-        android:paddingEnd="?attr/dialogPreferredPadding"
-        android:paddingRight="?attr/dialogPreferredPadding"
-        android:text="@string/instructiosn_text2"
-        android:textSize="18sp" />
-    </LinearLayout>
-    </ScrollView>
 <!--Button to show the list of shoes-->
-    <Button
-        android:id="@+id/shoe_list"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="@string/shoe_list"
-        android:textColor="@color/colorBack" />
+            <Button
+                android:id="@+id/shoe_list"
+                style="@style/long_button_style"
+                android:text="@string/shoe_list"
+                android:layout_weight="0"/>
 
-</LinearLayout></layout>
+</LinearLayout>
+    </ScrollView>
+    </layout>

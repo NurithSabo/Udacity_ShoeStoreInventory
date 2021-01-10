@@ -18,5 +18,45 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="button_style">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorBack</item>
+        <item name="android:layout_width">@dimen/button_width</item>
+    </style>
+    <style name="long_button_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorBack</item>
+    </style>
+    <style name="title_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:textSize">@dimen/title_size</item>
+    </style>
+
+    <style name="half_textview_style">
+        <item name="android:layout_width">@dimen/textview_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+    <style name="long_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/padding_text</item>
+        <item name="android:paddingTop">@dimen/padding_text</item>
+        <item name="android:paddingEnd">@dimen/padding_text</item>
+        <item name="android:paddingRight">@dimen/padding_text</item>
+        <item name="android:paddingBottom">@dimen/padding_text</item>
+    </style>
+
 
 </resources>

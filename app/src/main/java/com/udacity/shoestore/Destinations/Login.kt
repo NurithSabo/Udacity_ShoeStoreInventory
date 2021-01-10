@@ -11,26 +11,30 @@ import com.udacity.shoestore.databinding.LoginFragmentBinding
 
 class Login : Fragment() {
 
+    private lateinit var binding: LoginFragmentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
 
-        val binding: LoginFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.login_fragment,
             container,
             false
         )
 
-        val action = LoginDirections.actionLoginToWelcome()
-
         binding.loginButton.setOnClickListener {
+            val action = LoginDirections.actionLoginToWelcome()
             NavHostFragment.findNavController (this).navigate(action)}
 
         binding.registerButton.setOnClickListener {
+            val action = LoginDirections.actionLoginToWelcome()
             NavHostFragment.findNavController(this).navigate(action) }
+
+        (activity as MainActivity).supportActionBar?.title = "Login"
 
         return binding.root
     }
