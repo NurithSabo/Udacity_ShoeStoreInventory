@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <!--ConstraintLayout, because I wanted to position the
@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBack">
-        <!--vertical LinearLayout, because I want to show only 2 view under each other-->
+
             <!--TextView to sho the title-->
             <TextView
                 android:id="@+id/shoe_list_title"

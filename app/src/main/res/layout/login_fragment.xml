@@ -2,10 +2,15 @@
 <!--layout for the data binding-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="shoelist_viewmodel"
+            type="com.udacity.shoestore.destinations.shoeListing.ShoeListViewModel" />
+    </data>
 
-<!--Constraint Layout for the more flexibility-->
+<!--Constraint Layout for the more flexibility,
+and to avoid the nested viewgroups-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
@@ -37,6 +42,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:text="@string/email"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:layout_marginEnd="8dp"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
@@ -64,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
@@ -77,6 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
@@ -94,6 +103,8 @@
                     android:text="@string/register_text"
                     style="@style/button_style"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:onClick="@{(view) -> shoelist_viewmodel.loginOrRegister(view)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/login_button"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -106,6 +117,7 @@
                     app:layout_constraintBaseline_toBaselineOf="@+id/register_button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/register_button" />
+                    app:layout_constraintStart_toEndOf="@id/register_button"
+                    android:onClick="@{(view) -> shoelist_viewmodel.loginOrRegister(view)}"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

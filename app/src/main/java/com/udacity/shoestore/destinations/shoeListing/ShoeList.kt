@@ -1,4 +1,4 @@
-package com.udacity.shoestore.Destinations.ShoeListing
+package com.udacity.shoestore.destinations.shoeListing
 
 import android.os.Bundle
 import android.view.*
@@ -10,9 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.udacity.shoestore.Destinations.MainActivity
+import com.udacity.shoestore.destinations.MainActivity
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoelistFragmentBinding
 
@@ -44,18 +43,18 @@ class ShoeList : Fragment(){
         (activity as MainActivity).supportActionBar?.title = "List of shoes"
 
         return binding.root
-    }//end of onCreateView
-
-
-
-override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.fab.setOnClickListener(
-            Navigation.createNavigateOnClickListener
-                (R.id.action_shoeDetails_to_addShoe)
-        )
     }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+
+            binding.fab.setOnClickListener(
+                Navigation.createNavigateOnClickListener
+                    (R.id.action_shoeDetails_to_addShoe)
+            )
+
+        }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -65,16 +64,17 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.login_fragment -> {
+
                 viewModel.clearList()
                 return NavigationUI.onNavDestinationSelected(
                     item,
                     requireView().findNavController()
                 )
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
     private fun observeViewModel () {
         viewModel.shoeList.observe(viewLifecycleOwner) { shoesList ->
@@ -84,11 +84,4 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             }
         }
     }
-
-/*    fun Backpresses() {
-        val action = ShoeListDirections.actionShoeDetailsToInstructionsFragment()
-        NavHostFragment.findNavController(this.nav_host_fragment).navigate(action)
-    }*/
 }
-
-

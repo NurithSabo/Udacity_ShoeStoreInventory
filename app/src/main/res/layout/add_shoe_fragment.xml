@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--layout for the data binding-->
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <!--data element for viewMoldel-->
 <data>
+    <import type="android.view.View"/>
     <variable
-        name="addNewShoe"
-        type="com.udacity.shoestore.models.Shoe" />
+        name="shoelist_viewmodel"
+        type="com.udacity.shoestore.destinations.shoeListing.ShoeListViewModel" />
+
 </data>
 
         <!--Constraintlayout for the textviews, and editviews, and I choose this,
@@ -63,7 +65,8 @@
                 android:id="@+id/shoe_name_edit"
                 style="@style/half_textview_style"
                 android:inputType="text"
-                android:text="@string/shoeName"
+                android:text="@={shoelist_viewmodel.name}"
+                android:hint="@string/shoeName"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textView4" />
@@ -72,7 +75,8 @@
                 android:id="@+id/company_name_edit"
                 style="@style/half_textview_style"
                 android:inputType="text"
-                android:text="@string/company"
+                android:text="@={shoelist_viewmodel.company}"
+                android:hint="@string/company"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textView5" />
@@ -81,7 +85,8 @@
                 android:id="@+id/size_edit"
                 style="@style/half_textview_style"
                 android:inputType="number"
-                android:text="@string/_6"
+                android:text='@={shoelist_viewmodel.size}'
+                android:hint="@string/_6"
                 app:layout_constraintStart_toEndOf="@id/textView6"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -90,7 +95,8 @@
                 android:id="@+id/description_edit"
                 style="@style/half_textview_style"
                 android:inputType="text"
-                android:text="@string/description"
+                android:text="@={shoelist_viewmodel.description}"
+                android:hint="@string/description"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textView7" />
@@ -101,6 +107,7 @@
                 android:id="@+id/cancel_button"
                 android:layout_height="0dp"
                 android:text="@string/cancel"
+                android:onClick="@{(view) -> shoelist_viewmodel.onCancelClick(view)}"
                 style="@style/button_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/save_button"
@@ -110,6 +117,7 @@
                 android:id="@+id/save_button"
                 android:layout_height="0dp"
                 android:text="@string/save"
+                android:onClick="@{(view) -> shoelist_viewmodel.onSaveClick(view) }"
                 style="@style/button_style"
                 app:layout_constraintBaseline_toBaselineOf="@+id/cancel_button"
                 app:layout_constraintBottom_toBottomOf="parent"

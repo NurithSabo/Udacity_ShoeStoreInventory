@@ -1,17 +1,20 @@
-package com.udacity.shoestore.Destinations
+package com.udacity.shoestore.destinations
 
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.LoginFragmentBinding
+import com.udacity.shoestore.destinations.shoeListing.ShoeListViewModel
 
 
 class Login : Fragment() {
 
     private lateinit var binding: LoginFragmentBinding
+    private val viewModel: ShoeListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,15 +29,8 @@ class Login : Fragment() {
             false
         )
 
-        binding.loginButton.setOnClickListener {
-            val action = LoginDirections.actionLoginToWelcome()
-            NavHostFragment.findNavController (this).navigate(action)}
-
-        binding.registerButton.setOnClickListener {
-            val action = LoginDirections.actionLoginToWelcome()
-            NavHostFragment.findNavController(this).navigate(action) }
-
         (activity as MainActivity).supportActionBar?.title = "Login"
+        binding.shoelistViewmodel = viewModel
 
         return binding.root
     }

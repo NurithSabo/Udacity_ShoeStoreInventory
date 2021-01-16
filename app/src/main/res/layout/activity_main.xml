@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--This was the original file.
-merge layout is bringing together other layout
-It is to wrap other elements-->
-<merge
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--This layout needs only a very simple parent-->
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Destinations.MainActivity">
+    tools:context=".destinations.MainActivity"
+    android:orientation="vertical">
 <!--To here coming the different fragment.-->
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -16,6 +16,7 @@ It is to wrap other elements-->
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation" />
+        app:navGraph="@navigation/navigation"/>
 
-</merge>
+</LinearLayout>
+</layout>
